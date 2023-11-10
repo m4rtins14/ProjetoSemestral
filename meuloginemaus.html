@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link class="icone" rel="icon" href="imagens/icone.png">
+    <link rel="stylesheet" href="style.css">
+
+    <title>login emaus</title>
+</head>
+<body>
+    <main id="container">
+        <form id="login_form">
+            <div id="form_header">
+                <a><h1>emaus</h1></a>
+                 <i id="mode_icon" class="fa-solid fa-moon"></i>
+            </div>
+
+            <div id="social_mediaa">
+
+                <a href="#">
+                     <img src="imagens/face.png" alt="facebook logo">
+                </a>
+
+                <a href="#">
+                     <img src="imagens/google.png" alt="google logo">
+                </a>
+                </div>
+
+             <div id="inputs">
+                <div class="input-box">
+                    <label for="name">
+                        Usuário ou e-mail
+                        <div class="input-field">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="name" name="name">
+                        </div>
+                    </label>
+                </div>
+
+                <div class="input-box">
+                        <label for="password">
+                             Senha
+                            <div class="input-field">
+                                 <i class="fa-solid fa-key"></i>
+                                 <input type="password" id="password" name="password">
+                                </div>
+                            </label>
+
+                            <div id="forgot_password">
+                                <a href="senhaemaus.html">
+                                    Esqueceu a senha?
+                                </a>
+                            </div>
+                            <div id="forgot_password">
+                                <a href="cadastroemaus.html">
+                                   Criar conta
+                                </a>
+                            </div>
+                            <div id="forgot_password">
+                                <a href="coletivoemaus.html">
+                                    Cancelar
+                                </a>
+                            </div>
+                    </div>
+             </div>
+
+             <button href="" type="submit" id="login_button">
+                Login 
+             </button>
+
+        </form>
+    </main>
+    <script>
+        const mode = document.getElementById ('mode_icon');
+
+        mode.addEventListener ('click', () => {
+        const form = document.getElementById('login_form');
+        if(mode.classList.contains('fa-moon')) {
+        mode.classList.remove('fa-moon');
+        mode.classList.add('fa-sun');
+
+        form.classList.add('dark');
+        return;
+    }
+
+    mode.classList.add('fa-moon');
+    mode.classList.remove('fa-sun');
+    form.classList.remove ('dark');
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppings", sans-serif;
+}
+
+body {
+    background-color: #E0C7BD;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #DC9F8D;
+}
+
+.snake-grid {
+    background-color: #ffffff;
+}
+
+canvas {
+    background-color: #000000;
+    image-rendering: pixelated;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.8rem;
+}
+
+.score--value {
+    font-weight: 700;
+    font-size: 4.5rem;
+    display: block;
+    margin-top: -10px;
+}
+
+.menu-screen {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.game-over {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.final-score {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.btn-play,
+.btn-pause {
+    border: none;
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #A66454;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-play:hover {
+    background-color: #000000;
+}
+
+.btn-pause:hover {
+    background-color: darkorchid;
+}
+
+.grid {
+    background-color: #A66454;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    .score {
+        font-size: 1.4rem; 
+    }
+
+    .score--value {
+        font-size: 3rem; 
+    }
+
+    .btn-play,
+    .btn-pause {
+        font-size: 0.7rem; 
+        padding: 6px 10px; 
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    body {
+        font-size: 18px; 
+    }
+    
+    .score {
+        font-size: 1.6rem;
+    }
+
+    .score--value {
+        font-size: 3.5rem; 
+    }
+
+    .btn-play,
+    .btn-pause {
+        font-size: 0.9rem; 
+        padding: 7px 11px; 
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    }
+
+canvas {
+    image-rendering: pixelated;
+}
