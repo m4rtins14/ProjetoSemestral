@@ -66,7 +66,7 @@ const food = {
     imageIndex: Math.floor(Math.random() * foodImages.length)
 };
 
-let direction, loopId;
+let direction, loopId, isGameOver = false;
 
 const drawFood = () => {
     const { x, y, imageIndex } = food;
@@ -84,7 +84,7 @@ const drawSnake = () => {
 };
 
 const moveSnake = () => {
-    if (!direction) return;
+    if (!direction || isGameOver) return;
 
     const head = snake[snake.length - 1];
 
@@ -167,6 +167,7 @@ const checkCollision = () => {
 
 const gameOver = () => {
     direction = undefined;
+    isGameOver = true;
 
     menu.style.display = "flex";
     finalScore.innerText = score.innerText;
@@ -229,20 +230,32 @@ canvas.addEventListener("touchstart", (e) => {
 });
 
 buttonPlay.addEventListener("click", () => {
-    score.innerText = "00";
-    menu.style.display = "none";
-    canvas.style.filter = "none";
+    // Verifique se o jogo está no estado de game over
+    if (isGameOver) {
+        // Reinicialize as variáveis do jogo
+        score.innerText = "00";
+        menu.style.display = "none";
+        canvas.style.filter = "none";
+        snake = [initialPosition];
+        direction = undefined;
+        isGameOver = false;
 
-    snake = [initialPosition];
+        // Inicie o loop do jogo novamente
+        gameLoop();
+    }
 });
 
 function resgatarPontos() {
     // Lógica para resgatar pontos (pode ser ajustada conforme necessário)
     const pontosResgatados = +score.innerText; // Obtém a pontuação atual do jogo
+
+    // Zere o score
+    score.innerText = "00";
     
     // Exiba a mensagem na mesma página
     const mensagemResgate = document.getElementById('mensagem-resgate');
     alert(`Você resgatou ${pontosResgatados} pontos na página de pontos!`);
 }
+
 // Recupere os pontos do localStorage
 const pontosResgatados = localStorage.getItem('pontosResgatados');
